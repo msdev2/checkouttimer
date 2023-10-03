@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "Pro Checkout Countdown"
+client_id = "ea216412e2088c6571dd83cd62fdf3a8"
+application_url = "https://checkouttimer.codevibez.com"
+embedded = true
+extension_directories = [ "extensions/*" ]
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_content,read_files,write_files,read_metaobjects,write_metaobjects,read_script_tags,read_script_tags,read_themes"
+use_legacy_install_flow = true
+
+[auth]
+redirect_urls = [
+  "https://checkouttimer.codevibez.com/authenticate",
+  "https://checkouttimer.codevibez.com/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-07"
+
+  [webhooks.privacy_compliance]
+  customer_deletion_url = "https://checkouttimer.codevibez.com/shopify/webhooks/request"
+  customer_data_request_url = "https://checkouttimer.codevibez.com/shopify/webhooks/erasure"
+  shop_deletion_url = "https://checkouttimer.codevibez.com/hopify/webhooks/shop"
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "checkoutplustest.myshopify.com"

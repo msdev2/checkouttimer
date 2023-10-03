@@ -1,0 +1,227 @@
+//@import "variable.scss";
+$color__skeleton-1: #f6f7f8;
+$color__skeleton-2: #edeef1;
+nav{
+  position: sticky;
+  top: 0px;
+  z-index: 9;
+}
+// replace skeleton by actual content once loading is completed!
+.myheader{
+  background-image: url('/backend/img/image.png');background-size: contain;background-repeat: no-repeat;background-color: #f0f4fa;box-shadow: inset 0px -7px 18px #d7d7d7;
+}
+.skeleton {
+  
+  // Loading Animation for Skeleton
+  // Use :empty selector to make sure that no wrapper containers use loading animations 
+  *:empty {
+    background: $color__skeleton-1;
+    background-position: -500px 0;
+    animation: skeletonShine 1s linear 0s infinite normal forwards;
+    background-image: linear-gradient(135deg, $color__skeleton-1 0%, $color__skeleton-2 20%, $color__skeleton-1 40%, $color__skeleton-1 100%);
+    background-repeat: no-repeat;
+    background-size: 1000px 100%;
+  }
+
+  // Class for structuring content in skeleton
+  // Sections have no classes added, but give an overview of skeleton structure
+  &__section {
+    & + & {
+      margin-top: 16px;
+    }
+    // Table Loaders
+    &--table {}
+    // List of Buttons
+    &--actions {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    // Paragraph
+    &--p {
+    }
+    // Card Header
+    &--card {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    // Calendar View
+    &--calendar {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+  }
+  
+  // Classes for different placeholders
+  // Naming convention should be using tags to make sure what elements are represented by the skeleton element
+  
+  // Panel Title
+  &__header {
+    margin-bottom: 6px;
+    height: 32px;
+    width: 200px;
+    max-width: 35%;
+    
+    &--long {
+      width: 300px;
+      max-width: 85%;
+    }
+  }
+  &__hr {
+    height: 2px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  // Paragraph
+  &__p {
+    height: 16px;
+    width: 100%;
+    margin-bottom: 8px;
+    
+    &:last-child {
+      width: 45%;
+    }
+    
+    &--short {
+      max-width: 120px;
+    }
+  }
+  
+  // Form Fields
+  &__button {
+    height: 24px;
+    width: 56px;
+    margin-bottom: 8px;
+    
+    &:nth-child(2n) {
+      width: 72px;
+    }
+    &:nth-child(3n+1) {
+      width: 48px;
+    }
+  }
+  &__input {
+    height: 32px;
+    width: 100%;
+    margin-bottom: 8px;
+    
+    &--half {
+      width: 50%;
+    }
+  }
+  
+  // Repeater
+  &__ {
+  }
+  
+  // Table
+  &__tr {
+    display: flex;
+    gap: 12px;
+
+    &:first-child {
+      .skeleton__td {
+        height: 24px;
+        margin-bottom: 12px;
+      }
+    }
+  }
+  &__td {
+    flex: 1 1 100%;
+    height: 16px;
+    margin: 4px 0;
+
+    &:nth-child(2) {
+      flex-basis: 500%;
+    }
+    &:nth-child(3) {
+      flex-basis: 300%;
+    }
+    &:nth-child(4) {
+      flex-basis: 900%;
+    }
+    &:nth-child(5) {
+      flex-basis: 700%;
+    }
+  }
+  
+  // Additional Elements
+  &__img {
+    height: 64px;
+    width: 64px;
+    border-radius: 8px;
+  }
+  &__icon {
+    height: 24px;
+    width: 24px;
+    border-radius: 4px;
+  }
+  &__block {
+    height: 56px;
+    width: 100%;
+    margin-bottom: 12px;
+    
+    &--empty {
+      background: none !important;
+    }
+    
+    &--xs {
+      height: 12px;
+    }
+    &--s {
+      height: 24px;
+    }
+    &--l {
+      height: 92px;
+    }
+    &--xl {
+      height: 128px;
+    }
+  }
+  &__group {
+    height: 24px;
+    width: 200px;
+    max-width: 35%;
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  // Tree
+  &__tree {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 16px;
+    
+    * {
+      margin: 0;
+    }
+    .skeleton__p {
+      width: 100%;
+      max-width: none;
+    }
+    
+    &--0 {
+      padding-left: 0;
+    }
+    &--1 {
+      padding-left: 16px;
+    }
+    &--2 {
+      padding-left: 24px;
+    }
+  }
+}
+
+@keyframes skeletonShine {
+  to {
+    background-position: 500px 0;
+  }
+}
